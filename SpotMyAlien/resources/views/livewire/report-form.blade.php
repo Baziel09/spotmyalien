@@ -1,12 +1,12 @@
 <div>
     <!-- Success Message -->
     @if (session()->has('success'))
-        <div class="mb-6 p-4 bg-gradient-to-r from-green/10 to-blue/10 dark:from-green-dark/10 dark:to-blue-dark/10 border border-green dark:border-green-dark rounded-xl">
+        <div class="mb-6 p-4 bg-gradient-to-r from-green-300/10 to-blue-300/10 dark:from-green-300-dark/10 dark:to-blue-300-dark/10 border border-green-300 dark:border-green-300-dark rounded-xl">
             <div class="flex items-center">
-                <svg class="w-5 h-5 text-green dark:text-green-dark mr-3" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-5 h-5 text-green-300 dark:text-green-300-dark mr-3" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                 </svg>
-                <p class="text-green dark:text-green-dark font-medium">{{ session('success') }}</p>
+                <p class="text-green-300 dark:text-green-300-dark font-medium">{{ session('success') }}</p>
             </div>
         </div>
     @endif
@@ -14,7 +14,7 @@
     <form wire:submit.prevent="submit" class="space-y-6">
         <!-- Name Field -->
         <div class="space-y-2">
-            <label for="name" class="block text-sm font-semibold text-dark-blue dark:text-white">
+            <label for="name" class="block text-sm font-semibold text-blue-500 dark:text-white">
                 Name
                 <span class="text-red-500">*</span>
             </label>
@@ -22,7 +22,7 @@
                 <input 
                     type="text" 
                     wire:model="name" 
-                    class="w-full px-4 py-3 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue dark:focus:ring-blue-dark focus:border-transparent transition-all duration-200 text-dark-blue dark:text-white placeholder-gray-400 dark:placeholder-gray-500" 
+                    class="w-full px-4 py-3 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-300-dark focus:border-transparent transition-all duration-200 text-blue-500 dark:text-white placeholder-gray-400 dark:placeholder-gray-500" 
                     id="name"
                     placeholder="Enter your name"
                 >
@@ -44,14 +44,14 @@
 
         <!-- Message Field -->
         <div class="space-y-2">
-            <label for="message" class="block text-sm font-semibold text-dark-blue dark:text-white">
+            <label for="message" class="block text-sm font-semibold text-blue-500 dark:text-white">
                 Sighting Details
                 <span class="text-red-500">*</span>
             </label>
             <div class="relative">
                 <textarea 
                     wire:model="message" 
-                    class="w-full px-4 py-3 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue dark:focus:ring-blue-dark focus:border-transparent transition-all duration-200 text-dark-blue dark:text-white placeholder-gray-400 dark:placeholder-gray-500 resize-none" 
+                    class="w-full px-4 py-3 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-300-dark focus:border-transparent transition-all duration-200 text-blue-500 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 resize-none" 
                     id="message" 
                     rows="4"
                     placeholder="Describe what you observed, when it happened, and any other relevant details..."
@@ -74,7 +74,7 @@
 
         <!-- Location Field -->
         <div class="space-y-2">
-            <label for="location" class="block text-sm font-semibold text-dark-blue dark:text-white">
+            <label for="location" class="block text-sm font-semibold text-blue-500 dark:text-white">
                 Location
                 <span class="text-red-500">*</span>
             </label>
@@ -82,7 +82,7 @@
                 <input 
                     type="text" 
                     wire:model="location" 
-                    class="w-full px-4 py-3 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue dark:focus:ring-blue-dark focus:border-transparent transition-all duration-200 text-dark-blue dark:text-white placeholder-gray-400 dark:placeholder-gray-500" 
+                    class="w-full px-4 py-3 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-300-dark focus:border-transparent transition-all duration-200 text-blue-500 dark:text-white placeholder-gray-400 dark:placeholder-gray-500" 
                     id="location"
                     placeholder="Where did this occur? (e.g., Central Park, NYC)"
                 >
@@ -118,7 +118,7 @@
                 }
             "
         >
-            <label for="photo" class="block text-sm font-semibold text-dark-blue dark:text-white">
+            <label for="photo" class="block text-sm font-semibold text-blue-500 dark:text-white">
                 Photo Evidence
                 <span class="text-gray-400 font-normal">(Optional)</span>
             </label>
@@ -159,11 +159,11 @@
             
             <!-- Upload Progress -->
             <div wire:loading wire:target="photo" class="flex items-center mt-2">
-                <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-blue dark:text-blue-dark" fill="none" viewBox="0 0 24 24">
+                <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-blue-300 dark:text-blue-300-dark" fill="none" viewBox="0 0 24 24">
                     <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                     <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                 </svg>
-                <span class="text-blue dark:text-blue-dark font-medium">Uploading image...</span>
+                <span class="text-blue-300 dark:text-blue-300-dark font-medium">Uploading image...</span>
             </div>
             
             <!-- Photo Preview -->
@@ -172,7 +172,7 @@
                     <div class="flex items-center space-x-3">
                         <img src="{{ $photo->temporaryUrl() }}" class="w-20 h-20 object-cover rounded-lg shadow-md" alt="Preview">
                         <div>
-                            <p class="text-sm font-medium text-dark-blue dark:text-white">Image uploaded successfully</p>
+                            <p class="text-sm font-medium text-blue-500 dark:text-white">Image uploaded successfully</p>
                             <p class="text-xs text-gray-500 dark:text-gray-400">Ready to submit</p>
                         </div>
                     </div>
@@ -185,7 +185,7 @@
             <button 
                 type="submit" 
                 wire:loading.attr="disabled" 
-                class="w-full bg-gradient-to-r from-green to-blue dark:from-green-dark dark:to-blue-dark hover:from-green/90 hover:to-blue/90 dark:hover:from-green-dark/90 dark:hover:to-blue-dark/90 text-white font-semibold py-4 px-6 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                class="w-full bg-gradient-to-r from-green-300 to-blue-300 dark:from-green-300-dark dark:to-blue-300-dark hover:from-green-300/90 hover:to-blue/90 dark:hover:from-green-300-dark/90 dark:hover:to-blue-dark/90 text-white font-semibold py-4 px-6 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
             >
                 <span wire:loading.remove class="flex items-center justify-center">
                     <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">

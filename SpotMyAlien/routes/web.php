@@ -9,6 +9,8 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
+Route::get('/contact', fn () => view('contact'))->name('contact');
+
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');

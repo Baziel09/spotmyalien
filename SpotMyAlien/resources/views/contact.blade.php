@@ -8,6 +8,7 @@
 </head>
 <body>
 <x-header />
+    <h3></h3>
     <p class="py-64">This is where the contact info would be</p>
 <x-footer />
 </body>

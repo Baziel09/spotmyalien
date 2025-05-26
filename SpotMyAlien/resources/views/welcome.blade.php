@@ -9,17 +9,8 @@
 </head>
 <body class="bg-white text-gray-900 font-quicksand">
 
-    {{-- Header --}}
-    <header class="flex justify-between items-center px-6 py-4 shadow">
-        <div class="font-bold text-lg w-[50px]">
-            <img src="{{ asset('images/alien-space.svg') }}" alt="Kleine alien">
-        </div>
-        <nav class="space-x-4">
-            <a href="#" class="text-sm hover:underline">login</a>
-            <a href="#" class="text-sm hover:underline">register</a>
-            <a href="#" class="text-sm hover:underline">contact</a>
-        </nav>
-    </header>
+    {{-- Header Component--}}
+    <x-header />
 
     {{-- Hero Section --}}
     <section class="bg-gradient-to-r from-blue-300 to-blue-500 text-white py-36 px-24 md:flex items-center justify-between">
@@ -68,11 +59,8 @@
         </div>
     </section>
 
-    {{-- Footer --}}
-    <footer class="bg-gray-900 text-white text-center py-4 text-sm">
-        <p>Logo</p>
-        <p>Made by team Baziel, Karel, Lisa & Brent</p>
-    </footer>
+    {{-- Footer Component --}}
+    <x-footer />
 
 </body>
 </html>

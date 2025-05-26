@@ -11,6 +11,8 @@ Route::get('/', function () {
 
 Route::get('/contact', fn () => view('contact'))->name('contact');
 
+Route::get('/overons', fn () => view('about'))->name('about');
+
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');

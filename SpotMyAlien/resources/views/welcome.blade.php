@@ -9,17 +9,8 @@
 </head>
 <body class="bg-white text-gray-900 font-quicksand">
 
-    {{-- Header --}}
-    <header class="flex justify-between items-center px-6 py-4 shadow">
-        <div class="font-bold text-lg w-[50px]">
-            <img src="{{ asset('images/alien-space.svg') }}" alt="Kleine alien">
-        </div>
-        <nav class="space-x-4">
-            <a href="#" class="text-sm hover:underline">login</a>
-            <a href="#" class="text-sm hover:underline">register</a>
-            <a href="#" class="text-sm hover:underline">contact</a>
-        </nav>
-    </header>
+    {{-- Header Component--}}
+    <x-header />
 
     {{-- Hero Section --}}
     <section class="bg-gradient-to-r from-blue-300 to-blue-500 text-white py-36 px-24 md:flex items-center justify-between">
@@ -28,7 +19,7 @@
             <p>
                 <a href="#" class="underline">Verzamelen. Documenteren. Begrijpen.</a>
             </p>
-            <a href="#" class="inline-block bg-green-300 text-white px-6 py-2 mt-6 rounded hover:bg-green-600">
+            <a href="#" class="inline-block bg-green-300 text-white px-6 py-2 mt-6 rounded hover:bg-green-500">
                 Maak melding
             </a>
         </div>
@@ -46,19 +37,19 @@
             </p>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="bg-green-300 p-6 rounded-xl shadow text-left">
+                <div class="bg-green-500 hover:bg-green-300 p-6 rounded-xl shadow text-left transform transition duration-300 hover:scale-105">
                     <h3 class="text-xl font-bold mb-2">Informatie</h3>
                     <p>
                         Lees betrouwbare artikelen, analyses en getuigenverslagen over UFO-fenomenen. We scheiden feit van fictie.
                     </p>
                 </div>
-                <div class="bg-green-500 p-6 rounded-xl shadow text-left">
+                <div class="bg-green-500 hover:bg-green-300 p-6 rounded-xl shadow text-left transform transition duration-300 hover:scale-105">
                     <h3 class="text-xl font-bold mb-2">Meldpunt</h3>
                     <p>
                         Documenteer waarnemingen in Vlaanderen. Vul een formulier in en upload beeldmateriaal.
                     </p>
                 </div>
-                <div class="bg-green-500 p-6 rounded-xl shadow text-left">
+                <div class="bg-green-500 hover:bg-green-300 p-6 rounded-xl shadow text-left transform transition duration-300 hover:scale-105">
                     <h3 class="text-xl font-bold mb-2">Data Analyseren</h3>
                     <p>
                         Binnenkomende meldingen worden verwerkt in een openbaar overzicht: kaarten, tijdlijnen en trends.
@@ -68,11 +59,8 @@
         </div>
     </section>
 
-    {{-- Footer --}}
-    <footer class="bg-gray-900 text-white text-center py-4 text-sm">
-        <p>Logo</p>
-        <p>Made by team Baziel, Karel, Lisa & Brent</p>
-    </footer>
+    {{-- Footer Component --}}
+    <x-footer />
 
 </body>
 </html>

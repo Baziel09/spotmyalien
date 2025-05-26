@@ -15,7 +15,7 @@
         <!-- Name Field -->
         <div class="space-y-2">
             <label for="name" class="block text-sm font-semibold text-dark-blue dark:text-white">
-                Full Name
+                Name
                 <span class="text-red-500">*</span>
             </label>
             <div class="relative">
@@ -24,7 +24,7 @@
                     wire:model="name" 
                     class="w-full px-4 py-3 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue dark:focus:ring-blue-dark focus:border-transparent transition-all duration-200 text-dark-blue dark:text-white placeholder-gray-400 dark:placeholder-gray-500" 
                     id="name"
-                    placeholder="Enter your full name"
+                    placeholder="Enter your name"
                 >
                 <div class="absolute inset-y-0 right-0 flex items-center pr-3">
                     <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -104,7 +104,20 @@
         </div>
 
         <!-- Photo Upload Field -->
-        <div class="space-y-2">
+        <div 
+            class="space-y-2" 
+            id="dropZone"
+            ondragover="event.preventDefault(); this.classList.add('border-blue-500', 'bg-blue-50', 'dark:bg-blue-900/20')"
+            ondragleave="event.preventDefault(); this.classList.remove('border-blue-500', 'bg-blue-50', 'dark:bg-blue-900/20')"
+            ondrop="
+                event.preventDefault();
+                this.classList.remove('border-blue-500', 'bg-blue-50', 'dark:bg-blue-900/20');
+                const file = event.dataTransfer.files[0];
+                if (file) {
+                    @this.upload('photo', file);
+                }
+            "
+        >
             <label for="photo" class="block text-sm font-semibold text-dark-blue dark:text-white">
                 Photo Evidence
                 <span class="text-gray-400 font-normal">(Optional)</span>

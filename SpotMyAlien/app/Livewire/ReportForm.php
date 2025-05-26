@@ -53,4 +53,11 @@ class ReportForm extends Component
     {
         return view('livewire.report-form');
     }
+
+    public function updatedPhoto()
+    {
+        $this->validate([
+            'photo' => 'image|max:10240', // 10MB max
+        ]);
+    }
 }

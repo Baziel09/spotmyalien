@@ -11,7 +11,9 @@
 
     {{-- Header --}}
     <header class="flex justify-between items-center px-6 py-4 shadow">
-        <div class="font-bold text-lg">Logo</div>
+        <div class="font-bold text-lg w-[50px]">
+            <img src="{{ asset('images/alien-space.svg') }}" alt="Kleine alien">
+        </div>
         <nav class="space-x-4">
             <a href="#" class="text-sm hover:underline">login</a>
             <a href="#" class="text-sm hover:underline">register</a>
@@ -20,18 +22,18 @@
     </header>
 
     {{-- Hero Section --}}
-    <section class="bg-gradient-to-r from-blue-300 to-blue-500 text-white py-16 px-6 md:flex items-center justify-between">
+    <section class="bg-gradient-to-r from-blue-300 to-blue-500 text-white py-36 px-24 md:flex items-center justify-between">
         <div class="md:w-1/2 space-y-4">
-            <h1 class="text-4xl font-bold font-quicksand">SpotMyAlien</h1>
+            <h1 class="text-5xl font-bold font-quicksand">SpotMyAlien</h1>
             <p>
                 <a href="#" class="underline">Verzamelen. Documenteren. Begrijpen.</a>
             </p>
-            <a href="#" class="inline-block bg-green-300 text-white px-6 py-2 rounded hover:bg-green-600">
+            <a href="#" class="inline-block bg-green-300 text-white px-6 py-2 mt-6 rounded hover:bg-green-600">
                 Maak melding
             </a>
         </div>
         <div class="md:w-1/2 mt-6 md:mt-0 flex justify-center">
-            <img src="{{ asset('images/ufo.jpg') }}" alt="UFO" class="rounded-xl max-w-sm shadow-lg">
+            <img src="{{ asset('images/header-photo.jpg') }}" alt="UFO" class="rounded-xl max-w-sm shadow-lg transform scale-130">
         </div>
     </section>
 
@@ -69,7 +71,7 @@
     {{-- Footer --}}
     <footer class="bg-gray-900 text-white text-center py-4 text-sm">
         <p>Logo</p>
-        <p>Made by team A</p>
+        <p>Made by team Baziel, Karel, Lisa & Brent</p>
     </footer>
 
 </body>

@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
     @vite('resources/css/app.css')
 </head>
-<body class="bg-white text-gray-900 font-sans">
+<body class="bg-white text-gray-900 font-quicksand">
 
     {{-- Header --}}
     <header class="flex justify-between items-center px-6 py-4 shadow">
@@ -20,13 +20,13 @@
     </header>
 
     {{-- Hero Section --}}
-    <section class="bg-gradient-to-r from-cyan-700 to-blue-800 text-white py-16 px-6 md:flex items-center justify-between">
+    <section class="bg-gradient-to-r from-blue-300 to-blue-500 text-white py-16 px-6 md:flex items-center justify-between">
         <div class="md:w-1/2 space-y-4">
-            <h1 class="text-4xl font-bold">SpotMyAlien</h1>
+            <h1 class="text-4xl font-bold font-quicksand">SpotMyAlien</h1>
             <p>
                 <a href="#" class="underline">Verzamelen. Documenteren. Begrijpen.</a>
             </p>
-            <a href="#" class="inline-block bg-green-500 text-white px-6 py-2 rounded hover:bg-green-600">
+            <a href="#" class="inline-block bg-green-300 text-white px-6 py-2 rounded hover:bg-green-600">
                 Maak melding
             </a>
         </div>
@@ -36,7 +36,7 @@
     </section>
 
     {{-- Waarom SpotMyAlien --}}
-    <section class="bg-blue-900 text-white py-16 px-6">
+    <section class="bg-blue-400 text-white py-16 px-6">
         <div class="max-w-4xl mx-auto text-center">
             <h2 class="text-3xl font-bold mb-4">Waarom SpotMyAlien</h2>
             <p class="text-gray-300 mb-10">
@@ -44,7 +44,7 @@
             </p>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="bg-green-500 p-6 rounded-xl shadow text-left">
+                <div class="bg-green-300 p-6 rounded-xl shadow text-left">
                     <h3 class="text-xl font-bold mb-2">Informatie</h3>
                     <p>
                         Lees betrouwbare artikelen, analyses en getuigenverslagen over UFO-fenomenen. We scheiden feit van fictie.

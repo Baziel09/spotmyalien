@@ -4,6 +4,7 @@ use App\Livewire\Settings\Appearance;
 use App\Livewire\Settings\Password;
 use App\Livewire\Settings\Profile;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DonationController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -28,5 +29,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('settings/password', Password::class)->name('settings.password');
     Route::get('settings/appearance', Appearance::class)->name('settings.appearance');
 });
+
+Route::get('/doneren', [DonationController::class, 'show'])->name('donate');
+Route::post('/doneren', [DonationController::class, 'checkout'])->name('donate.checkout');
+Route::get('/doneren/succes', [DonationController::class, 'success'])->name('donate.success');
+Route::get('/doneren/geannuleerd', [DonationController::class, 'cancel'])->name('donate.cancel');
+
 
 require __DIR__.'/auth.php';

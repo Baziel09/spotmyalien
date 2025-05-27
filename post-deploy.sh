@@ -2,7 +2,7 @@
 # This script should be run on the server after deployment
 
 # Go to the application directory
-cd /subsites/spotmyalien.be/degrotebeer
+cd subsites/spotmyalien.be/degrotebeer
 
 # Set proper permissions
 find storage -type d -exec chmod 775 {} \;

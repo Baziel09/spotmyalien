@@ -17,6 +17,7 @@ class Report extends Model
         'description',
         'user_id',
         'validated',
+        'photo_path',
     ];
 
     protected $casts = [

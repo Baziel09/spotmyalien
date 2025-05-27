@@ -24,6 +24,8 @@ class ReportResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-envelope';
 
+    protected static ?int $navigationSort = 2;
+
     public static function form(Form $form): Form
     {
         return $form->schema([
@@ -46,6 +48,17 @@ class ReportResource extends Resource
             Forms\Components\Textarea::make('description')
                 ->required()
                 ->label('Beschrijving'),
+            
+            Forms\Components\FileUpload::make('photo_path')
+                ->label('Foto')
+                ->image()
+                ->directory('reports')
+                ->disk('public')
+                ->visibility('public')
+                ->imagePreviewHeight('150')
+                ->downloadable()
+                ->imageEditor()
+                ->columnSpanFull(),
 
             Forms\Components\Toggle::make('validated')
                 ->label('Geverifieerd'),
@@ -57,6 +70,13 @@ class ReportResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\ImageColumn::make('photo_path')
+                    ->label('Foto')
+                    ->disk('public')
+                    ->height(50)
+                    ->width(50)
+                    ->openUrlInNewTab(),
+                    
                 Tables\Columns\TextColumn::make('country')
                     ->label('Land')
                     ->sortable()

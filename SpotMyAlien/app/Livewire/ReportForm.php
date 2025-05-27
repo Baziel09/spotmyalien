@@ -9,18 +9,38 @@ class ReportForm extends Component
 {
     use WithFileUploads;
 
-    public $name;
     public $message;
     public $photo;
-    public $location;
+    public $country;
+    public $city;
+    public $street;
+    public $date;
+    public $time;
+    public $type_id;
 
     // Validation rules
     protected $rules = [
-        'name' => 'required|min:3',
         'message' => 'required|min:10',
         'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:10240',
-        'location' => 'required',
+        'country' => 'required',
+        'city' => 'required',
+        'street' => 'nullable',
+        'date' => 'required|date',
+        'time' => 'required|date_format:H:i',
+        'type_id' => 'required|in:accident,theft,vandalism',
+
     ];
+
+    protected $messages = [
+        'date.before_or_equal' => 'The date cannot be in the future',
+        'message.max' => 'Description must not exceed 2000 characters',
+    ];
+
+    public function mount()
+    {
+        $this->date = now()->format('Y-m-d');
+        $this->time = now()->format('H:i');
+    }
 
     // Real-time validation (optional)
     public function updated($propertyName)
@@ -36,16 +56,18 @@ class ReportForm extends Component
         // Save to database
         $report = Report::create([
             'user_id' => auth()->id(),
-            'name' => $this->name,
-            'message' => $this->message,
-            'location' => $this->location,
-            'photo_path' => $this->photo ? $this->photo->store('reports/photos', 'public') : null,
+            'date' => Carbon::parse($this->date . ' ' . $this->time),
+            'country' => $this->country,
+            'city' => $this->city,
+            'street' => $this->street,
+            'description' => $this->message,
+            'photo_path' => $this->photo?->store('reports/photos', 'public'),
+            'type_id' => $this->type_id,
+            'validated' => 0,
         ]);
 
         // Reset form
-        $this->reset();
-
-        // Show success message
+        $this->resetExcept(['date', 'time']);
         session()->flash('success', 'Report submitted successfully!');
     }
 

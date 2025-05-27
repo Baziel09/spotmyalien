@@ -23,7 +23,7 @@ jobs:
           
       - name: Install Composer dependencies
         run: |
-          cd SpotMyAlien 
+          cd spotmyalien 
           composer install --no-dev --prefer-dist --no-interaction --optimize-autoloader
           
       - name: Setup deploy key

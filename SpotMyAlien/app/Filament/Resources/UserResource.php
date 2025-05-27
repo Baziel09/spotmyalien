@@ -19,17 +19,23 @@ class UserResource extends Resource
 
     protected static ?string $navigationLabel = 'Gebruikers';
 
+    protected static ?string $pluralLabel = 'Gebruikers';
+
     protected static ?string $navigationIcon = 'heroicon-o-users';
+
+    protected static ?int $navigationSort = 1;
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name')
+                    ->label('Naam')
                     ->required()
                     ->maxLength(255),
 
                 Forms\Components\TextInput::make('email')
+                    ->label('Email')
                     ->email()
                     ->required()
                     ->unique(ignoreRecord: true),
@@ -39,12 +45,12 @@ class UserResource extends Resource
                     ->maxLength(255)
                     ->dehydrated(fn ($state) => filled($state)) // only save if filled
                     ->required(fn (string $context) => $context === 'create') // required on create
-                    ->label('Password')
+                    ->label('Wachtwoord')
                     ->confirmed(),
 
                 Forms\Components\TextInput::make('password_confirmation')
                     ->password()
-                    ->label('Confirm Password')
+                    ->label('Bevestig Wachtwoord')
                     ->required(fn (string $context) => $context === 'create')
                     ->dehydrated(false),
                 
@@ -65,17 +71,30 @@ class UserResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('name'),
-                Tables\Columns\TextColumn::make('email'),
+                Tables\Columns\TextColumn::make('name')
+                    ->label('Naam')
+                    ->sortable()
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('email')
+                    ->label('Email')
+                    ->sortable()
+                    ->searchable(),
                 // Tables\Columns\TextColumn::make('email_verified_at'),
-                Tables\Columns\TextColumn::make('created_at'),
-                Tables\Columns\TextColumn::make('updated_at'),
+                Tables\Columns\TextColumn::make('created_at')
+                    ->label('Aangemaakt op')
+                    ->dateTime()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('updated_at')
+                    ->label('Aangepast op')
+                    ->dateTime()
+                    ->sortable(),
             ])
             ->filters([
-                //
+                Tables\Filters\SelectFilter::make('role')->relationship('roles', 'name'),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\ForceDeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

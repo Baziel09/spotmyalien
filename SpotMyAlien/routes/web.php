@@ -32,7 +32,7 @@ Route::middleware(['auth'])->group(function () {
 
 Route::get('/doneren', [DonationController::class, 'show'])->name('donate');
 Route::post('/doneren', [DonationController::class, 'checkout'])->name('donate.checkout');
-Route::get('/doneren/succes', [DonationController::class, 'success'])->name('donate.success');
+Route::get('/doneren/succes', fn () => view('succes'))->name('donate.success');
 Route::get('/doneren/geannuleerd', [DonationController::class, 'cancel'])->name('donate.cancel');
 
 

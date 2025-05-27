@@ -4,12 +4,18 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Str;
+use Filament\Models\Contracts\FilamentUser;
+use Illuminate\Support\Facades\Auth;
+use Filament\Panel;
 
-class User extends Authenticatable
+
+class User extends Authenticatable 
+// implements FilamentUser
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable, HasRoles;
@@ -58,6 +64,11 @@ class User extends Authenticatable
             ->map(fn (string $name) => Str::of($name)->substr(0, 1))
             ->implode('');
     }
+
+    // public function canAccessPanel(Panel $panel): bool
+    // {
+    //     return Auth::user()->hasRole('admin');
+    // }
 
     public function reports(): HasMany
     {

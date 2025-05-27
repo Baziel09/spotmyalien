@@ -28,10 +28,10 @@
                     Verzamelen. Documenteren. Begrijpen.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 pt-4">
-                    <a href="#" class="inline-flex items-center justify-center bg-gradient-to-r from-green-500 to-emerald-600 text-white px-8 py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 hover:from-green-400 hover:to-emerald-500">
+                    <a href="report" class="inline-flex items-center justify-center bg-gradient-to-r from-green-500 to-emerald-600 text-white px-8 py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 hover:from-green-400 hover:to-emerald-500">
                         Maak melding
                     </a>
-                    <a href="#reports" class="inline-flex items-center justify-center border-2 border-white border-opacity-30 text-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:bg-opacity-10 transition-all duration-300">
+                    <a href="#" class="inline-flex items-center justify-center border-2 border-white border-opacity-30 text-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:bg-opacity-10 transition-all duration-300">
                         Bekijk meldingen
                     </a>
                 </div>

@@ -22,7 +22,9 @@ jobs:
           extensions: mbstring, bcmath
           
       - name: Install Composer dependencies
-        run: cd /spotmyalien && composer install --no-dev --prefer-dist --no-interaction --optimize-autoloader
+        run: |
+          cd spotmyalien 
+          composer install --no-dev --prefer-dist --no-interaction --optimize-autoloader
           
       - name: Setup deploy key
         run: |

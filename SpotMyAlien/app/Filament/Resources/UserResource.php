@@ -47,7 +47,18 @@ class UserResource extends Resource
                     ->label('Confirm Password')
                     ->required(fn (string $context) => $context === 'create')
                     ->dehydrated(false),
-            ]);
+                
+                Forms\Components\Toggle::make('is_admin')
+                    ->label('Admin')
+                    ->afterStateUpdated(function ($state, $set, $record) {
+                        if ($state) {
+                            $record->assignRole('admin');
+                        } else {
+                            $record->removeRole('admin');
+                        }
+                    })
+                    ->default(fn ($record) => $record?->hasRole('admin') ?? false)
+                            ]);
     }
 
     public static function table(Table $table): Table
@@ -76,7 +87,7 @@ class UserResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            UserResource\RelationManagers\ReportsRelationManager::class
         ];
     }
 

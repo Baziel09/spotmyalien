@@ -7,5 +7,8 @@
         <a href="#" class="text-sm hover:underline">Register</a>
         <a href="{{ route('about') }}" class="text-sm hover:underline">Over ons</a>
         <a href="{{ route('contact') }}" class="text-sm hover:underline">Contact</a>
+        @auth
+        <a href="{{ route('meldingen') }}" class="text-sm hover:underline">Mijn Meldingen</a>
+        @endauth
     </nav>
 </header>

@@ -49,6 +49,13 @@ class ReportsRelationManager extends RelationManager
         return $table
             ->recordTitleAttribute('title')
             ->columns([
+                Tables\Columns\ImageColumn::make('photo_path')
+                    ->label('Foto')
+                    ->disk('public')
+                    ->height(50)
+                    ->width(50)
+                    ->openUrlInNewTab(),
+                    
                 Tables\Columns\TextColumn::make('country')
                     ->label('Land')
                     ->sortable()

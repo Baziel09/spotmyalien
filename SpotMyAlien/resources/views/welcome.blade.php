@@ -16,8 +16,8 @@
     <section class="bg-gradient-to-r from-blue-300 to-blue-500 text-white py-36 px-24 md:flex items-center justify-between">
         <div class="md:w-1/2 space-y-4">
             <h1 class="text-5xl font-bold font-quicksand">SpotMyAlien</h1>
-            <p>
-                <a href="#" class="underline">Verzamelen. Documenteren. Begrijpen.</a>
+            <p class="underline">
+               Verzamelen. Documenteren. Begrijpen. 
             </p>
             <a href="#" class="inline-block bg-green-300 text-white px-6 py-2 mt-6 rounded hover:bg-green-500">
                 Maak melding

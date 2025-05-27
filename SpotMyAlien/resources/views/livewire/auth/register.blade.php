@@ -1,62 +1,76 @@
-<div class="flex flex-col gap-6">
-    <x-auth-header :title="__('Create an account')" :description="__('Enter your details below to create your account')" />
-
-    <!-- Session Status -->
-    <x-auth-session-status class="text-center" :status="session('status')" />
-
-    <form wire:submit="register" class="flex flex-col gap-6">
-        <!-- Name -->
-        <flux:input
-            wire:model="name"
-            :label="__('Name')"
-            type="text"
-            required
-            autofocus
-            autocomplete="name"
-            :placeholder="__('Full name')"
-        />
-
-        <!-- Email Address -->
-        <flux:input
-            wire:model="email"
-            :label="__('Email address')"
-            type="email"
-            required
-            autocomplete="email"
-            placeholder="email@example.com"
-        />
-
-        <!-- Password -->
-        <flux:input
-            wire:model="password"
-            :label="__('Password')"
-            type="password"
-            required
-            autocomplete="new-password"
-            :placeholder="__('Password')"
-            viewable
-        />
-
-        <!-- Confirm Password -->
-        <flux:input
-            wire:model="password_confirmation"
-            :label="__('Confirm password')"
-            type="password"
-            required
-            autocomplete="new-password"
-            :placeholder="__('Confirm password')"
-            viewable
-        />
-
-        <div class="flex items-center justify-end">
-            <flux:button type="submit" variant="primary" class="w-full">
-                {{ __('Create account') }}
-            </flux:button>
+@vite('resources/css/app.css')
+<div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-300 via-blue-400 to-blue-500 p-6">
+    <div class="w-full max-w-sm bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl p-8">
+        <div class="flex justify-center mb-8">
+            <img src="{{ asset('images/alien-space.svg') }}" alt="Logo" class="w-16 h-16">
         </div>
-    </form>
+        
+        <h2 class="text-3xl font-quicksand font-bold text-center text-blue-500 mb-8">Create Account</h2>
+        
+        <form wire:submit="register" class="space-y-6">
+            <!-- Name Input -->
+            <div>
+                <label for="name" class="block font-quicksand text-blue-400 mb-2">Name</label>
+                <input wire:model="name" 
+                       type="text" 
+                       id="name"
+                       class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-blue-300 focus:ring focus:ring-blue-300/20 transition-colors bg-white/50"
+                       required 
+                       autofocus>
+                @error('name') 
+                    <span class="text-red-500 text-sm mt-1 block">{{ $message }}</span>
+                @enderror
+            </div>
 
-    <div class="space-x-1 rtl:space-x-reverse text-center text-sm text-zinc-600 dark:text-zinc-400">
-        {{ __('Already have an account?') }}
-        <flux:link :href="route('login')" wire:navigate>{{ __('Log in') }}</flux:link>
+            <!-- Email Input -->
+            <div>
+                <label for="email" class="block font-quicksand text-blue-400 mb-2">Email</label>
+                <input wire:model="email" 
+                       type="email" 
+                       id="email"
+                       class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-blue-300 focus:ring focus:ring-blue-300/20 transition-colors bg-white/50"
+                       required>
+                @error('email') 
+                    <span class="text-red-500 text-sm mt-1 block">{{ $message }}</span>
+                @enderror
+            </div>
+
+            <!-- Password Input -->
+            <div>
+                <label for="password" class="block font-quicksand text-blue-400 mb-2">Password</label>
+                <input wire:model="password" 
+                       type="password" 
+                       id="password"
+                       class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-blue-300 focus:ring focus:ring-blue-300/20 transition-colors bg-white/50"
+                       required>
+                @error('password') 
+                    <span class="text-red-500 text-sm mt-1 block">{{ $message }}</span>
+                @enderror
+            </div>
+
+            <!-- Confirm Password -->
+            <div>
+                <label for="password_confirmation" class="block font-quicksand text-blue-400 mb-2">Confirm Password</label>
+                <input wire:model="password_confirmation" 
+                       type="password" 
+                       id="password_confirmation"
+                       class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-blue-300 focus:ring focus:ring-blue-300/20 transition-colors bg-white/50"
+                       required>
+            </div>
+
+            <div class="pt-4">
+                <button type="submit" 
+                        class="w-full bg-green-300 hover:bg-green-500 text-white font-quicksand font-semibold py-3 px-6 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl">
+                    Create Account
+                </button>
+            </div>
+
+            <div class="text-center">
+                <a href="{{ route('login') }}" 
+                   class="text-sm text-blue-400 hover:text-blue-500 font-quicksand">
+                    Already have an account? Sign in
+                </a>
+            </div>
+        </form>
     </div>
 </div>

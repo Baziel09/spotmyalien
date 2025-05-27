@@ -23,7 +23,7 @@ jobs:
           
       - name: Install Composer dependencies
         run: |
-          cd SpotMyAlien 
+          cd spotmyalien 
           composer install --no-dev --prefer-dist --no-interaction --optimize-autoloader
           
       - name: Setup deploy key
@@ -41,8 +41,8 @@ jobs:
                      --exclude 'node_modules/' \
                      --exclude '.env' \
                      --exclude '.env.example' \
-                     ./ productionserverbe@ssh.productionserver.be:subsites/spotmyalien.be/deGroteBeer
+                     ./ productionserverbe@ssh.productionserver.be:subsites/spotmyalien.be/degrotebeer
           
       - name: Post-deployment commands
         run: |
-          ssh productionserverbe@ssh.productionserver.be "cd subsites/spotmyalien.be/deGroteBeer && bash post-deploy.sh"
+          ssh productionserverbe@ssh.productionserver.be "cd subsites/spotmyalien.be/degrotebeer && bash post-deploy.sh"

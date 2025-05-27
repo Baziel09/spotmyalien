@@ -11,6 +11,7 @@
         </div>
     @endif
 
+    <form wire:submit.prevent="submit">
         <!-- Date and Time Fields -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <!-- Date Field -->
@@ -80,12 +81,16 @@
                 <span class="text-red-500">*</span>
             </label>
             <div class="relative">
-                <select wire:model="type_id" class="...">
-                    <option value="">Select incident type</option>
-                    <option value="accident">Accident</option>
-                    <option value="theft">Theft</option>
-                    <option value="vandalism">Vandalism</option>
-                </select>
+            <select 
+                wire:model="type"
+                class="w-full px-4 py-3 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-300-dark transition-all duration-200 text-blue-500 dark:text-white appearance-none"
+                id="type"
+            >
+                <option value="">Select an incident type</option>
+                @foreach($this->reportTypes as $value => $label)
+                    <option value="{{ $value }}">{{ $label }}</option>
+                @endforeach
+            </select>
                 <div class="absolute inset-y-0 right-0 flex items-center pr-3">
                     <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
@@ -93,7 +98,7 @@
                     </svg>
                 </div>
             </div>
-            @error('country') 
+            @error('type') 
                 <p class="text-red-500 text-sm flex items-center mt-1">
                     <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
                         <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
@@ -196,17 +201,17 @@
             @enderror
         </div>
 
-        <!-- Message Field -->
+        <!-- Description Field -->
         <div class="space-y-2">
-            <label for="message" class="block text-sm font-semibold text-blue-500 dark:text-white">
+            <label for="description" class="block text-sm font-semibold text-blue-500 dark:text-white">
                 Beschrijving
                 <span class="text-red-500">*</span>
             </label>
             <div class="relative">
                 <textarea 
-                    wire:model="message" 
+                    wire:model="description" 
                     class="w-full px-4 py-3 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-300-dark focus:border-transparent transition-all duration-200 text-blue-500 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 resize-none" 
-                    id="message" 
+                    id="description" 
                     rows="4"
                     placeholder="Beschrijf de gebeurtenis en vermeld relevante details."
                 ></textarea>
@@ -216,7 +221,7 @@
                     </svg>
                 </div>
             </div>
-            @error('message') 
+            @error('description') 
                 <p class="text-red-500 text-sm flex items-center mt-1">
                     <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
                         <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
@@ -293,7 +298,9 @@
             @if ($photo)
                 <div class="mt-4 p-4 bg-gray-50 dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-700">
                     <div class="flex items-center space-x-3">
-                        <img src="{{ $photo->temporaryUrl() }}" class="w-20 h-20 object-cover rounded-lg shadow-md" alt="Preview">
+                        @if (method_exists($photo, 'temporaryUrl'))
+                            <img src="{{ $photo->temporaryUrl() }}" class="w-20 h-20 object-cover rounded-lg shadow-md" alt="Preview">
+                        @endif                        
                         <div>
                             <p class="text-sm font-medium text-blue-500 dark:text-white">Foto is succesvol geladen</p>
                             <p class="text-xs text-gray-500 dark:text-gray-400">Klaar om te verzenden</p>

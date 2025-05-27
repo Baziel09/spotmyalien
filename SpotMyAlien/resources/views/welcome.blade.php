@@ -33,7 +33,7 @@
     <h2 class="text-3xl pt-12 font-bold mb-4 text-white text-center">Laatste meldingen</h2>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mx-auto max-w-4xl">
         @foreach($reports as $report)
-            <div class="bg-green-500 hover:bg-green-300 p-6 pt-12 pb-12 text-white rounded-xl shadow text-left transform transition duration-300 hover:scale-105">
+            <div class="bg-blue-300 hover:bg-blue-500 p-6 pt-12 pb-12 text-white rounded-xl shadow text-left transform transition duration-300 hover:scale-105">
                 <strong>{{ $report->city }}, {{ $report->country }}</strong><br>
                 {{ $report->type }} op {{ $report->date }}<br>
                 {{ Str::limit($report->description, 100) }}

@@ -19,7 +19,7 @@
             <p class="underline">
                Verzamelen. Documenteren. Begrijpen. 
             </p>
-            <a href="#" class="inline-block bg-green-300 text-white px-6 py-2 mt-6 rounded hover:bg-green-500">
+            <a href="/report" class="inline-block bg-green-300 text-white px-6 py-2 mt-6 rounded hover:bg-green-500">
                 Maak melding
             </a>
         </div>

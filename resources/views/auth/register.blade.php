@@ -7,53 +7,58 @@
         
         <h2 class="text-3xl font-quicksand font-bold text-center text-blue-500 mb-8">Create Account</h2>
         
-        <form wire:submit.prevent="register" class="space-y-6">
+        @if ($errors->any())
+            <div class="mb-4 p-4 bg-red-50 text-red-600 rounded-lg">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+        
+        <form method="POST" action="{{ route('register') }}" class="space-y-6">
+            @csrf
+            
             <!-- Name Input -->
             <div>
                 <label for="name" class="block font-quicksand text-blue-400 mb-2">Name</label>
-                <input wire:model="name" 
-                       type="text" 
+                <input type="text" 
                        id="name"
+                       name="name"
+                       value="{{ old('name') }}"
                        class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-blue-300 focus:ring focus:ring-blue-300/20 transition-colors bg-white/50"
                        required 
                        autofocus>
-                @error('name')
-                    <span class="text-red-500 text-sm mt-1 block">{{ $message }}</span>
-                @enderror
             </div>
 
             <!-- Email Input -->
             <div>
                 <label for="email" class="block font-quicksand text-blue-400 mb-2">Email</label>
-                <input wire:model="email" 
-                       type="email" 
+                <input type="email" 
                        id="email"
+                       name="email"
+                       value="{{ old('email') }}"
                        class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-blue-300 focus:ring focus:ring-blue-300/20 transition-colors bg-white/50"
                        required>
-                @error('email')
-                    <span class="text-red-500 text-sm mt-1 block">{{ $message }}</span>
-                @enderror
             </div>
 
             <!-- Password Input -->
             <div>
                 <label for="password" class="block font-quicksand text-blue-400 mb-2">Password</label>
-                <input wire:model="password" 
-                       type="password" 
+                <input type="password" 
                        id="password"
+                       name="password"
                        class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-blue-300 focus:ring focus:ring-blue-300/20 transition-colors bg-white/50"
                        required>
-                @error('password')
-                    <span class="text-red-500 text-sm mt-1 block">{{ $message }}</span>
-                @enderror
             </div>
 
             <!-- Confirm Password -->
             <div>
                 <label for="password_confirmation" class="block font-quicksand text-blue-400 mb-2">Confirm Password</label>
-                <input wire:model="password_confirmation" 
-                       type="password" 
+                <input type="password" 
                        id="password_confirmation"
+                       name="password_confirmation"
                        class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-blue-300 focus:ring focus:ring-blue-300/20 transition-colors bg-white/50"
                        required>
             </div>

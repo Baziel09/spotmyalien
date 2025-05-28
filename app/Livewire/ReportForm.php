@@ -23,15 +23,14 @@ class ReportForm extends Component
     public $type = '';
 
     protected $messages = [
-        'date.before_or_equal' => 'The date cannot be in the future',
-        'description.max' => 'Description must not exceed 2000 characters',
-        'description.min' => 'Description must be at least 10 characters',
+        'date.before_or_equal' => 'De datum mag niet in de toekomst zijn',
+        'description.max' => 'De beschrijving mag maximaal 2000 tekens zijn',
     ];
 
     public function rules()
     {
         return [
-            'description' => 'required|min:10|max:2000',
+            'description' => 'required|max:2000',
             'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:10240',
             'country' => 'required|string|max:255',
             'city' => 'required|string|max:255',
@@ -72,7 +71,7 @@ class ReportForm extends Component
         // Save to database
         try {
             $report = Report::create([
-                'user_id' => auth()->id(),
+                'user_id' => "1",
                 'date' => Carbon::parse($this->date . ' ' . $this->time),
                 'country' => $this->country,
                 'city' => $this->city,

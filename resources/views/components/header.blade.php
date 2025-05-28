@@ -11,6 +11,7 @@
         <a href="{{ route('contact') }}" class="text-sm hover:underline">Contact</a>
         @auth
         <a href="#" class="text-sm hover:underline">Mijn Meldingen</a>
+        <a href="#" class="text-sm hover:underline">Maak melding</a>
         <a href="#" class="text-sm hover:underline">Logout</a>
         @endauth
     </nav>

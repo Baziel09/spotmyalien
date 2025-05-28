@@ -36,7 +36,4 @@ php artisan cache:clear
 php artisan view:clear
 php artisan route:clear
 
-# Optimize
-php artisan optimize
-
 echo "Deployment completed successfully!"

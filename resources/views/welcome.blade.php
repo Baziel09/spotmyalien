@@ -76,14 +76,6 @@
                 <p class="text-white leading-relaxed mb-4">
                     {{ Str::limit($report->description, 120) }}
                 </p>
-
-                <!-- Read more link -->
-                <div class="flex items-center text-white hover:text-blue-800 font-medium text-sm group-hover:translate-x-1 transition-transform duration-300">
-                    <span>Lees meer</span>
-                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                    </svg>
-                </div>
             </div>
             @endforeach
         </div>

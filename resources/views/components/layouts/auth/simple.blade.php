@@ -2,6 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="dark">
     <head>
         @include('partials.head')
+        @livewireStyles
     </head>
     <body class="min-h-screen bg-gradient-to-br from-blue-300 via-blue-400 to-blue-500 antialiased">
         <div class="flex min-h-screen flex-col items-center justify-center gap-6 p-6 md:p-10">
@@ -18,6 +19,7 @@
                 {{ $slot }}
             </div>
         </div>
-        @fluxScripts
+        {{-- @fluxScripts --}}
+        @livewireScripts
     </body>
 </html>

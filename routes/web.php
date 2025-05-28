@@ -35,5 +35,6 @@ Route::post('/doneren', [DonationController::class, 'checkout'])->name('donate.c
 Route::get('/doneren/succes', fn () => view('succes'))->name('donate.success');
 Route::get('/doneren/geannuleerd', [DonationController::class, 'cancel'])->name('donate.cancel');
 
+Route::get('/test', \App\Livewire\TestComponent::class);
 
 require __DIR__.'/auth.php';

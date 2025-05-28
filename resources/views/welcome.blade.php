@@ -6,7 +6,8 @@
     <meta charset="UTF-8">
     <title>SpotMyAlien</title>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
-    @vite('resources/css/app.css')
+    {{-- @vite('resources/css/app.css') --}}
+    @livewireStyles
 </head>
 
 <body class="bg-white text-gray-900 font-quicksand">
@@ -150,7 +151,7 @@
 
     {{-- Footer Component --}}
     <x-footer />
-
+@livewireScripts
 </body>
 
 </html>

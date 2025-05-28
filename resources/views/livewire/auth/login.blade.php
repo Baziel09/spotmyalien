@@ -9,7 +9,7 @@
         <!-- Session Status -->
         <x-auth-session-status class="text-center" :status="session('status')" />
 
-        <form wire:submit="login" class="space-y-6">
+        <form wire:submit.prevent="login" class="space-y-6">
             <!-- Email Input -->
             <div>
                 <label for="email" class="block font-quicksand text-blue-400 mb-2">Email</label>

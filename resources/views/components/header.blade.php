@@ -3,8 +3,10 @@
         <a href="{{ route('home') }}"><img src="{{ asset('images/alien-space.svg') }}" alt="{{ $logoAlt }}"></a>
     </div>
     <nav class="space-x-4">
-        <a href="{{ route('login') }}" class="text-sm hover:underline">login</a>
-        <a href="{{ route('register') }}" class="text-sm hover:underline">register</a>
+        @guest
+        <a href="{{ route('login') }}" class="text-sm hover:underline">Login</a>
+        <a href="{{ route('register') }}" class="text-sm hover:underline">Register</a>
+        @endguest
         <a href="{{ route('about') }}" class="text-sm hover:underline">Over ons</a>
         <a href="{{ route('contact') }}" class="text-sm hover:underline">Contact</a>
         @auth

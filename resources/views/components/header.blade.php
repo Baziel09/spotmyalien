@@ -11,7 +11,7 @@
         <a href="{{ route('contact') }}" class="text-sm hover:underline">Contact</a>
         @auth
         <a href="{{ route('my-reports') }}" class="text-sm hover:underline">Mijn Meldingen</a>
-        <a href="#" class="text-sm hover:underline">Maak melding</a>
+        <a href="{{ route('report') }}" class="text-sm hover:underline">Maak melding</a>
         <form method="POST" action="{{ route('logout') }}" class="inline">
         @csrf
         <button type="submit" class="text-sm hover:underline bg-transparent border-none p-0 cursor-pointer">

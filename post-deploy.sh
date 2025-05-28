@@ -17,6 +17,7 @@ if [ ! -f .env ]; then
     echo "Please configure your .env file with the correct database credentials and other settings"
 fi
 
+
 # Run migrations
 php artisan migrate --force
 

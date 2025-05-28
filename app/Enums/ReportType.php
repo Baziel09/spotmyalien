@@ -12,10 +12,10 @@ enum ReportType: string
     public function label(): string
     {
         return match($this) {
-            self::Orb => 'Orb',
-            self::Triangle => 'Triangle',
-            self::Disc => 'Disc',
-            self::Other => 'Other',
+            self::Orb => 'Bol',
+            self::Triangle => 'Driehoek',
+            self::Disc => 'Schijf',
+            self::Other => 'Andere',
         };
     }
 

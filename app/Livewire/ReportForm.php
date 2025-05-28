@@ -71,7 +71,7 @@ class ReportForm extends Component
         // Save to database
         try {
             $report = Report::create([
-                'user_id' => "1",
+                'user_id' => auth()->user()->id,
                 'date' => Carbon::parse($this->date . ' ' . $this->time),
                 'country' => $this->country,
                 'city' => $this->city,

@@ -20,14 +20,12 @@ Route::view('dashboard', 'dashboard')
 
 Route::get('/report', function () {
     return view('report');
-});
+})->name('report');
 
 Route::middleware(['auth'])->group(function () {
-    Route::redirect('settings', 'settings/profile');
-
-    Route::get('settings/profile', Profile::class)->name('settings.profile');
-    Route::get('settings/password', Password::class)->name('settings.password');
-    Route::get('settings/appearance', Appearance::class)->name('settings.appearance');
+   Route::get('/mijn-meldingen', function () {
+        return view('my-reports');
+    })->name('my-reports');
 });
 
 Route::get('/doneren', [DonationController::class, 'show'])->name('donate');

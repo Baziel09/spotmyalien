@@ -17,7 +17,7 @@
             <!-- Date Field -->
             <div class="space-y-2">
                 <label for="date" class="block text-sm font-semibold text-blue-500 dark:text-white">
-                    Date
+                    Datum
                     <span class="text-red-500">*</span>
                 </label>
                 <div class="relative">
@@ -25,14 +25,11 @@
                         type="date" 
                         wire:model="date" 
                         max="{{ now()->format('Y-m-d') }}"
-                        class="w-full px-4 py-3 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-300-dark focus:border-transparent transition-all duration-200 text-blue-500 dark:text-white placeholder-gray-400 dark:placeholder-gray-500" 
+                        class="w-full px-4 py-3 bg-gray-50 dark:bg-gray-900 border-0 rounded-xl focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-300-dark transition-all duration-200 text-blue-500 dark:text-white placeholder-gray-400 dark:placeholder-gray-500" 
                         id="date"
+                        onclick="this.showPicker()"
                     >
-                    <div class="absolute inset-y-0 right-0 flex items-center pr-3">
-                        <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                        </svg>
-                    </div>
+
                 </div>
                 @error('date')
                     <p class="text-red-500 text-sm flex items-center mt-1">
@@ -47,21 +44,17 @@
             <!-- Time Field -->
             <div class="space-y-2">
                 <label for="time" class="block text-sm font-semibold text-blue-500 dark:text-white">
-                    Time
+                    Tijdstip
                     <span class="text-red-500">*</span>
                 </label>
                 <div class="relative">
                     <input 
                         type="time" 
                         wire:model="time" 
-                        class="w-full px-4 py-3 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-300-dark focus:border-transparent transition-all duration-200 text-blue-500 dark:text-white placeholder-gray-400 dark:placeholder-gray-500" 
+                        class="w-full px-4 py-3 bg-gray-50 dark:bg-gray-900 border-0 rounded-xl focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-300-dark transition-all duration-200 text-blue-500 dark:text-white placeholder-gray-400 dark:placeholder-gray-500" 
                         id="time"
+                        onclick="this.showPicker()"
                     >
-                    <div class="absolute inset-y-0 right-0 flex items-center pr-3">
-                        <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                        </svg>
-                    </div>
                 </div>
                 @error('time')
                     <p class="text-red-500 text-sm flex items-center mt-1">
@@ -77,7 +70,7 @@
         <!-- Type Field -->
         <div class="space-y-2">
             <label for="type" class="block text-sm font-semibold text-blue-500 dark:text-white">
-                Land
+                Soort incident
                 <span class="text-red-500">*</span>
             </label>
             <div class="relative">
@@ -86,17 +79,11 @@
                 class="w-full px-4 py-3 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-300-dark transition-all duration-200 text-blue-500 dark:text-white appearance-none"
                 id="type"
             >
-                <option value="">Select an incident type</option>
+                <option value="">Selecteer het soort incident</option>
                 @foreach($this->reportTypes as $value => $label)
                     <option value="{{ $value }}">{{ $label }}</option>
                 @endforeach
             </select>
-                <div class="absolute inset-y-0 right-0 flex items-center pr-3">
-                    <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                    </svg>
-                </div>
             </div>
             @error('type') 
                 <p class="text-red-500 text-sm flex items-center mt-1">
@@ -118,16 +105,10 @@
                 <input 
                     type="text" 
                     wire:model="country" 
-                    class="w-full px-4 py-3 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-300-dark focus:border-transparent transition-all duration-200 text-blue-500 dark:text-white placeholder-gray-400 dark:placeholder-gray-500" 
+                    class="w-full px-4 py-3 bg-gray-50 dark:bg-gray-900 border-0 rounded-xl focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-300-dark transition-all duration-200 text-blue-500 dark:text-white placeholder-gray-400 dark:placeholder-gray-500" 
                     id="country"
-                    placeholder="In welk land vond dit plaats? (België, Duitsland, Frankrijk, etc.)"
+                    placeholder="In welk land vond dit plaats?"
                 >
-                <div class="absolute inset-y-0 right-0 flex items-center pr-3">
-                    <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                    </svg>
-                </div>
             </div>
             @error('country') 
                 <p class="text-red-500 text-sm flex items-center mt-1">
@@ -149,16 +130,10 @@
                 <input 
                     type="text" 
                     wire:model="city" 
-                    class="w-full px-4 py-3 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-300-dark focus:border-transparent transition-all duration-200 text-blue-500 dark:text-white placeholder-gray-400 dark:placeholder-gray-500" 
+                    class="w-full px-4 py-3 bg-gray-50 dark:bg-gray-900 border-0 rounded-xl focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-300-dark transition-all duration-200 text-blue-500 dark:text-white placeholder-gray-400 dark:placeholder-gray-500" 
                     id="city"
-                    placeholder="In welke stad was je toen je dit zag gebeuren?"
+                    placeholder="In welke stad bevond je je?"
                 >
-                <div class="absolute inset-y-0 right-0 flex items-center pr-3">
-                    <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                    </svg>
-                </div>
             </div>
             @error('city') 
                 <p class="text-red-500 text-sm flex items-center mt-1">
@@ -174,31 +149,17 @@
         <div class="space-y-2">
             <label for="street" class="block text-sm font-semibold text-blue-500 dark:text-white">
                 Straat en huisnummer
-                <span class="text-red-500">*</span>
+                <span class="text-gray-400 font-normal">(Optioneel)</span>
             </label>
             <div class="relative">
                 <input 
                     type="text" 
                     wire:model="street" 
-                    class="w-full px-4 py-3 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-300-dark focus:border-transparent transition-all duration-200 text-blue-500 dark:text-white placeholder-gray-400 dark:placeholder-gray-500" 
+                    class="w-full px-4 py-3 bg-gray-50 dark:bg-gray-900 border-0 rounded-xl focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-300-dark transition-all duration-200 text-blue-500 dark:text-white placeholder-gray-400 dark:placeholder-gray-500" 
                     id="street"
-                    placeholder="In welke straat en rond welk huisnummer bevond je je toen je het voorval zag gebeuren?"
+                    placeholder="In welke straat bevond je je?"
                 >
-                <div class="absolute inset-y-0 right-0 flex items-center pr-3">
-                    <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                    </svg>
-                </div>
             </div>
-            @error('street') 
-                <p class="text-red-500 text-sm flex items-center mt-1">
-                    <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
-                    </svg>
-                    {{ $message }}
-                </p>
-            @enderror
         </div>
 
         <!-- Description Field -->
@@ -210,16 +171,11 @@
             <div class="relative">
                 <textarea 
                     wire:model="description" 
-                    class="w-full px-4 py-3 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-300-dark focus:border-transparent transition-all duration-200 text-blue-500 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 resize-none" 
+                    class="w-full px-4 py-3 bg-gray-50 dark:bg-gray-900 border-0 rounded-xl focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-300-dark transition-all duration-200 text-blue-500 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 resize-none" 
                     id="description" 
                     rows="4"
                     placeholder="Beschrijf de gebeurtenis en vermeld relevante details."
                 ></textarea>
-                <div class="absolute top-3 right-3">
-                    <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
-                    </svg>
-                </div>
             </div>
             @error('description') 
                 <p class="text-red-500 text-sm flex items-center mt-1">
@@ -248,7 +204,7 @@
         >
             <label for="photo" class="block text-sm font-semibold text-blue-500 dark:text-white">
                 Fotografisch bewijs
-                <span class="text-gray-400 font-normal">(Optional)</span>
+                <span class="text-gray-400 font-normal">(Optioneel)</span>
             </label>
             
             <!-- Custom File Upload Area -->
@@ -265,9 +221,6 @@
                     class="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-xl cursor-pointer bg-gray-50 dark:bg-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200"
                 >
                     <div class="flex flex-col items-center justify-center pt-5 pb-6">
-                        <svg class="w-8 h-8 mb-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                        </svg>
                         <p class="mb-2 text-sm text-gray-500 dark:text-gray-400">
                             <span class="font-semibold">Klik om foto op te laden</span> of sleep naar hier
                         </p>
@@ -297,14 +250,26 @@
             <!-- Photo Preview -->
             @if ($photo)
                 <div class="mt-4 p-4 bg-gray-50 dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-700">
-                    <div class="flex items-center space-x-3">
-                        @if (method_exists($photo, 'temporaryUrl'))
-                            <img src="{{ $photo->temporaryUrl() }}" class="w-20 h-20 object-cover rounded-lg shadow-md" alt="Preview">
-                        @endif                        
-                        <div>
-                            <p class="text-sm font-medium text-blue-500 dark:text-white">Foto is succesvol geladen</p>
-                            <p class="text-xs text-gray-500 dark:text-gray-400">Klaar om te verzenden</p>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-3">
+                            @if (method_exists($photo, 'temporaryUrl'))
+                                <img src="{{ $photo->temporaryUrl() }}" class="w-20 h-20 object-cover rounded-lg shadow-md" alt="Preview">
+                            @endif                        
+                            <div>
+                                <p class="text-sm font-medium text-blue-500 dark:text-white">Foto is succesvol geladen</p>
+                                <p class="text-xs text-gray-500 dark:text-gray-400">Klaar om te verzenden</p>
+                            </div>
                         </div>
+                        <button 
+                            type="button" 
+                            wire:click="$set('photo', null)"
+                            class="flex items-center justify-center w-8 h-8 text-red-500 hover:text-red-700 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-full transition-colors duration-200"
+                            title="Verwijder foto"
+                        >
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
                     </div>
                 </div>
             @endif

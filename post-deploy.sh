@@ -26,6 +26,10 @@ fi
 # Run migrations first (creates database tables)
 php artisan migrate --force --seed
 
+# Install npm dependencies
+npm install
+npm run build
+
 # Now clear caches (tables should exist)
 php artisan config:clear
 php artisan cache:clear

@@ -12,7 +12,12 @@
         @auth
         <a href="#" class="text-sm hover:underline">Mijn Meldingen</a>
         <a href="#" class="text-sm hover:underline">Maak melding</a>
-        <a href="#" class="text-sm hover:underline">Logout</a>
+        <form method="POST" action="{{ route('logout') }}" class="inline">
+        @csrf
+        <button type="submit" class="text-sm hover:underline bg-transparent border-none p-0 cursor-pointer">
+            Logout
+        </button>
+    </form>
         @endauth
     </nav>
 </header>

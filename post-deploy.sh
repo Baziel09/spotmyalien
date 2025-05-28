@@ -24,7 +24,7 @@ if [ ! -f .env ]; then
 fi
 
 # Run migrations first (creates database tables)
-php artisan migrate --force
+php artisan migrate --force --seed
 
 # Now clear caches (tables should exist)
 php artisan config:clear

@@ -6,7 +6,7 @@
     <title>Document</title>
     @vite('resources/css/app.css')
 </head>
-<body>
+<body class="font-quicksand">
     <x-header />
     {{-- Over ons Hero --}}
     <section class="bg-blue-300 text-white py-36 px-6 flex items-center justify-center text-center">

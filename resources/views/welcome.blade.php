@@ -32,7 +32,7 @@
                     <a href="report" class="inline-flex items-center justify-center bg-gradient-to-r from-green-500 to-emerald-600 text-white px-8 py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 hover:from-green-400 hover:to-emerald-500">
                         Maak melding
                     </a>
-                    <a href="#" class="inline-flex items-center justify-center border-2 border-white border-opacity-30 text-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:bg-opacity-10 transition-all duration-300">
+                    <a href="#" class="inline-flex items-center justify-center border-2 border-white border-opacity-30 text-white px-8 py-4 rounded-xl font-semibold transform hover:scale-105 duration-300">
                         Bekijk meldingen
                     </a>
                 </div>
@@ -94,7 +94,7 @@
         <div class="max-w-4xl mx-auto text-center mb-12">
             <h2 class="text-3xl font-bold mb-4">Waarom SpotMyAlien</h2>
             <p class="text-gray-300">
-                “Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.”
+            UFO-waarnemingen verdienen een serieuze aanpak. SpotMyAlien biedt een platform waar nieuwsgierigheid, onderzoek en transparantie samenkomen.
             </p>
         </div>
 

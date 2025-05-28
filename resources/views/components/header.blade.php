@@ -9,6 +9,13 @@
         <a href="{{ route('contact') }}" class="text-sm hover:underline">Contact</a>
         @auth
         <a href="#" class="text-sm hover:underline">Mijn Meldingen</a>
+           <form method="POST" action="{{ route('logout') }}" class="inline">
+        @csrf
+        <button type="submit" class="text-sm hover:underline bg-transparent border-none cursor-pointer">
+            Log out
+        </button>
+    </form>
         @endauth
+
     </nav>
 </header>

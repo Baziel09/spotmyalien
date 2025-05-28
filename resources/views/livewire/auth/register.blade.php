@@ -1,4 +1,4 @@
-{{-- @vite('resources/css/app.css') --}}
+@vite('resources/css/app.css')
 <div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-300 via-blue-400 to-blue-500 p-6">
     <div class="w-full max-w-sm bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl p-8">
         <div class="flex justify-center mb-8">
@@ -6,6 +6,17 @@
         </div>
         
         <h2 class="text-3xl font-quicksand font-bold text-center text-blue-500 mb-8">Create Account</h2>
+
+        @if (session()->has('success'))
+            <div class="mb-4 p-3 rounded bg-green-100 text-green-800">
+                {{ session('success') }}
+            </div>
+        @endif
+        @if (session()->has('error'))
+            <div class="mb-4 p-3 rounded bg-red-100 text-red-800">
+                {{ session('error') }}
+            </div>
+        @endif
         
         <form wire:submit.prevent="register" class="space-y-6">
             <!-- Name Input -->

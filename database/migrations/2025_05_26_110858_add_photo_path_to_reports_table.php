@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('reports', function (Blueprint $table) {
-            $table->text('photo_path')->default(null);
+            $table->text('photo_path')->default(null)->nullable();
         });
     }
 
